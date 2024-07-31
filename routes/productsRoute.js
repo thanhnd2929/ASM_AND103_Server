@@ -83,6 +83,18 @@ router.delete('/:id', async (req, res) => {
       res.status(400).json({ message: err.message });
     }
   });
+
+
+// API endpoint để xóa hóa đơn theo ID
+// router.delete('/:id', async (req, res) => {
+//   try {
+//     const billId = req.params.id;
+//     await Bill.findByIdAndDelete(billId);
+//     res.status(200).json({ message: 'Bill deleted successfully' });
+//   } catch (error) {
+//     res.status(500).json({ message: 'Error deleting bill', error });
+//   }
+// });
   
 
 module.exports = router;

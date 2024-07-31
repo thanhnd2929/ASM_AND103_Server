@@ -3,6 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const productRoutes = require('./routes/productsRoute');
+const billsRoutes = require('./routes/billsRoute');
 
 const app = express();
 const port = 3000;
@@ -22,6 +23,7 @@ db.once('open', function () {
 // Middleware
 app.use(bodyParser.json());
 app.use('/api/products', productRoutes);
+app.use('/api/bills', billsRoutes)
 
 // Bắt đầu server
 app.listen(port, () => {
