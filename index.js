@@ -24,6 +24,9 @@ db.once('open', function () {
 app.use(bodyParser.json());
 app.use('/api/products', productRoutes);
 app.use('/api/bills', billsRoutes)
+// Sử dụng các routes cho history
+app.use('/api', historyRoutes);
+
 
 // Bắt đầu server
 app.listen(port, () => {

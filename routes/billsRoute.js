@@ -35,4 +35,15 @@ router.delete('/:id', async (req, res) => {
   }
 });
 
+// API endpoint để tính tổng tiền của tất cả hóa đơn
+router.get('/total', async (req, res) => {
+  try {
+    const bills = await Bill.find({});
+    const totalPrice = bills.reduce((total, bill) => total + (bill.productPrice * bill.productWeight), 0);
+    res.status(200).json({ totalPrice });
+  } catch (error) {
+    res.status(500).json({ message: 'Error calculating total price', error });
+  }
+});
+
 module.exports = router;
