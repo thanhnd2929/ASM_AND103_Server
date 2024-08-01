@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const productRoutes = require('./routes/productsRoute');
 const billsRoutes = require('./routes/billsRoute');
+const historysRoutes = require('./routes/historysRoute')
 
 const app = express();
 const port = 3000;
@@ -25,7 +26,7 @@ app.use(bodyParser.json());
 app.use('/api/products', productRoutes);
 app.use('/api/bills', billsRoutes)
 // Sử dụng các routes cho history
-app.use('/api', historyRoutes);
+app.use('/api/historys', historysRoutes);
 
 
 // Bắt đầu server

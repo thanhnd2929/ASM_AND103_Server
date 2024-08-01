@@ -46,4 +46,14 @@ router.get('/total', async (req, res) => {
   }
 });
 
+// API endpoint để xóa tất cả hóa đơn
+router.delete('/', async (req, res) => {
+  try {
+    await Bill.deleteMany({});
+    res.status(200).json({ message: 'All bills deleted successfully' });
+  } catch (error) {
+    res.status(500).json({ message: 'Error deleting all bills', error });
+  }
+});
+
 module.exports = router;
